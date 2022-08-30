@@ -4,6 +4,7 @@ import { UserContext } from "./_app";
 import { db } from "../src/firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { useRouter } from 'next/router';
+import { Backdrop }  from "@mui/material";
 
 const profile_details = () => {
     const userObj = useContext(UserContext);
@@ -18,6 +19,7 @@ const profile_details = () => {
     const [roomno, setRoomno] = useState('');
     const [open, setOpen] = useState(false)
     const [adminKey, setAdminKey] = useState('');
+    const [Loading,setLoading] = useState(false)
 
 
  const onSubmitHandler = (e) =>{
@@ -36,7 +38,8 @@ const profile_details = () => {
             type
         }).then(() => {
           setOpen(true);
-          router.push('/profile_details_edit');
+          router.push('/Complaints');
+          setLoading(true)
 
       })
       .catch((error) =>{
@@ -54,6 +57,11 @@ const profile_details = () => {
     }
 
     return (
+      <>
+      {Loading&&<Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={Loading}
+      ></Backdrop>}
         
 <div style={{width:"80vw",
             marginTop:"150px",
@@ -179,6 +187,7 @@ const profile_details = () => {
           </Alert>
         </Snackbar>
       </div>
+      </>
     )
 }
 

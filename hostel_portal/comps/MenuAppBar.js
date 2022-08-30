@@ -9,8 +9,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import {CgProfile} from "react-icons/cg"
 import { IconButton } from '@mui/material';
 import Link from "next/link";
+import { auth } from "../src/firebase";
+import { signOut } from "firebase/auth"
+import { useRouter } from 'next/router';
 
 export default function ButtonAppBar() {
+  const router = useRouter()
+
+  const onLogoutHandler =async () => {
+    await signOut(auth); 
+    router.push("/")
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -25,13 +35,13 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            Hostel Portal
           </Typography>
           {/* <IconButton><CgProfile /></IconButton> */}
         <Link href="/Profile/">
             <a>  <IconButton><CgProfile /></IconButton> </a>
             </Link>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={onLogoutHandler}>Logout</Button>
         </Toolbar>
       </AppBar>
     </Box>

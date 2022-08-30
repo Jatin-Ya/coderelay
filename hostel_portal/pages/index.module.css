@@ -1,0 +1,177 @@
+.but {
+  margin: 10px;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 700;
+  font-size: calc((10vw - 0.5rem) / 7);
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.but:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.but:active {
+  transform: scale(0.95);
+}
+
+.card {
+    height: 96vh;
+    display:grid;
+    background: #1111;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    justify-items: center;
+    position: fixed;
+}
+  
+.text {
+    margin: auto;
+    text-align: center;
+    display: inline-block;
+    transition: .5s;
+}
+
+.text span{
+    background: #fff;
+    width: calc((25vw - 0.5rem) / 7);
+    height: calc((25vw - 0.5rem) / 7);
+    display: block;
+    line-height: calc((25vw - 0.5rem) / 7);
+    font-family:monospace;
+    font-weight: bold;
+    color: #00B2F5;
+    font-size: calc((25vw - 0.5rem) / 7);
+    float: left;
+    transition: .5s;
+}
+
+.text span:nth-child(1){
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.text span:last-of-type{
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.text:hover span:nth-child(odd) {
+    transform: skewY(-15deg);
+    color: #00B2F5;
+    box-shadow: 0 60px 20px rgba(0,0,0,0.1);
+}
+
+.text:hover span:nth-child(even) {
+    transform: skewY(15deg);
+    color: #00B2F5;
+    box-shadow: 0 60px 20px rgb(17, 17, 17), inset 0px 0 30px rgba(0,0,0,0.2);;
+}
+    
+.text:hover{
+    transform:rotateX(35deg);
+}
+
+/* -------------------- */
+.page {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Arial;
+  }
+  
+  
+  
+  .header {
+    text-align: center;
+    padding: 32px;
+  }
+  
+  .row1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create four equal columns that sits next to each other */
+  .column1 {
+    flex: 25%;
+    max-width: 34%;
+    padding: 0 4px;
+
+  }
+  
+  .column1 img {
+    margin-top: 8px;
+    vertical-align: middle;
+  }
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media (max-width: 800px) {
+
+  }
+
+  /* Column container */
+  .row {  
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Create two unequal columns that sits next to each other */
+  /* Sidebar/left column */
+  .side {
+    flex: 30%;
+    background-color: #020022;
+    padding: 20px;
+  }
+  
+  /* Main column */
+  .main {
+    flex: 10%;
+    background-color: #020022;
+    padding: 20px;
+  }
+  
+  
+  /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .row{   
+      flex-direction: column;
+    }
+    .column1 {
+      flex: 100%;
+      max-width: 100%;
+    }
+    .card{
+      position: relative;
+      width: calc((400vw - 4.5rem) / 7);
+    }
+    .main{
+      position: absolute;
+      height:min-content;
+      width: 100%;
+      justify-items: center;
+    }
+    .side{
+      width: 100%;
+    } 
+  }
+
+  @media screen and (max-height: 400px) {
+    .card{
+      position: relative;
+    }
+  }
