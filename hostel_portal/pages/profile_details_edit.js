@@ -3,10 +3,13 @@ import { Typography, Grid, TextField, Button, Snackbar, Alert, Checkbox, FormCon
 import { UserContext } from "./_app";
 import { db } from "../src/firebase";
 import { addDoc, collection } from "firebase/firestore";
+import { useRouter } from 'next/router';
 
 const profile_details = () => {
     const userObj = useContext(UserContext);
     const user = userObj.user;
+
+    const router = useRouter();
 
     const [adminRadio, setAdminRadio] = useState(false);
     const [name, setName] = useState('');
@@ -33,6 +36,8 @@ const profile_details = () => {
             type
         }).then(() => {
           setOpen(true);
+          router.push('/profile_details_edit');
+
       })
       .catch((error) =>{
           alert(error.message)
